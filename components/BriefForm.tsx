@@ -60,41 +60,48 @@ export function BriefForm() {
   if (loading) return <LoadingSpinner label="Generating proposal…" />;
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+    <form
+      onSubmit={onSubmit}
+      className="space-y-4 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-950 dark:shadow-none"
+    >
       <label className="block space-y-1">
-        <span className="text-sm font-medium">Project brief</span>
+        <span className="text-sm font-medium text-neutral-900 dark:text-neutral-200">Project brief</span>
         <textarea
           required
           rows={8}
           value={brief}
           onChange={(e) => setBrief(e.target.value)}
-          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm"
+          className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500"
           placeholder="Goals, deliverables, constraints, links…"
         />
       </label>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block space-y-1">
-          <span className="text-sm font-medium">Client name</span>
+          <span className="text-sm font-medium text-neutral-900 dark:text-neutral-200">Client name</span>
           <input
             value={clientName}
             onChange={(e) => setClientName(e.target.value)}
-            className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm"
+            className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500"
           />
         </label>
         <label className="block space-y-1">
-          <span className="text-sm font-medium">Client email</span>
+          <span className="text-sm font-medium text-neutral-900 dark:text-neutral-200">Client email</span>
           <input
             type="email"
             value={clientEmail}
             onChange={(e) => setClientEmail(e.target.value)}
-            className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm"
+            className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500"
           />
         </label>
       </div>
-      {error ? <p className="text-sm text-red-600">{error}</p> : null}
+      {error ? (
+        <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+          {error}
+        </p>
+      ) : null}
       <button
         type="submit"
-        className="w-full rounded-lg bg-neutral-900 py-2.5 text-sm font-medium text-white hover:bg-neutral-800"
+        className="w-full rounded-lg bg-neutral-900 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-white"
       >
         Generate proposal
       </button>

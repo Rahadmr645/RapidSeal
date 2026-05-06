@@ -7,7 +7,14 @@
   --background: #fafafa;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+.dark {
+  --foreground: #fafafa;
+  --background: #0a0a0a;
+}
+
+@layer base {
+  body {
+    color: var(--foreground);
+    background-color: var(--background);
+  }
 }
